@@ -14,16 +14,11 @@ function Lista(){
 	this.agregar = function(){
 		this.tareaNueva = new Tarea (2017, this.id+=1, this.tarea.value, false);
 		this.tareasPendientes.push(this.tareaNueva);
-		document.getElementById("newTarea").value = "";
-		this.mostrarLista();
+		document.getElementById("newTarea").value = "";	
+		document.getElementById("listaTareas").innerHTML += "<li><input type='checkbox'>"+this.tareaNueva.title+"</li>";
 	};
-	this.mostrarLista = function(){
-		var lista = ""
-		for (var i = 10; i < this.tareasPendientes.length; i++) {
-			lista = "<li>"+this.tareasPendientes[i].title+"</li>"
-		}
-		document.getElementById("listaTareas").innerHTML += lista;
-	};
+	
+		
 }
 
 var listaDeTareas = new Lista();
@@ -32,7 +27,6 @@ var agregarTarea = document.getElementById("agregarTarea");
 agregarTarea.onclick = function(){
 	listaDeTareas.agregar();
 }
-
 
 var muchasTareas = [
   {
@@ -1244,7 +1238,7 @@ for (var i = 0; i < 10; i++){
 function mostrarLista10(){
 	var lista = ""
 	for (var i = 0; i < tareasJSON.length; i++) {
-			lista += "<li>"+tareasJSON[i].title+"</li>"
+			lista += "<li><input type='checkbox'>"+tareasJSON[i].title+"</li>"
 	}
 	document.getElementById("listaTareas").innerHTML = lista;
 }
