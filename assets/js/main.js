@@ -1,5 +1,4 @@
 var tareasJSON =[];
-var tareaCreada = document.getElementById("newTarea");
 
 function Tarea (userId,id,title,completed){
 	this.userId = userId;
@@ -10,13 +9,21 @@ function Tarea (userId,id,title,completed){
 
 function Lista(){	
 	this.tareasPendientes = tareasJSON;
-	this.id = 0
+	this.id = 0;
 	this.tarea = document.getElementById("newTarea");
 	this.agregar = function(){
-
 		this.tareaNueva = new Tarea (2017, this.id+=1, this.tarea.value, false);
 		this.tareasPendientes.push(this.tareaNueva);
-	}
+		document.getElementById("newTarea").value = "";
+		this.mostrarLista();
+	};
+	this.mostrarLista = function(){
+		var lista = ""
+		for (var i = 10; i < this.tareasPendientes.length; i++) {
+			lista = "<li>"+this.tareasPendientes[i].title+"</li>"
+		}
+		document.getElementById("listaTareas").innerHTML += lista;
+	};
 }
 
 var listaDeTareas = new Lista();
@@ -1234,3 +1241,11 @@ for (var i = 0; i < 10; i++){
 	tareasJSON.push( diezTareas );
 }
 
+function mostrarLista10(){
+	var lista = ""
+	for (var i = 0; i < tareasJSON.length; i++) {
+			lista += "<li>"+tareasJSON[i].title+"</li>"
+	}
+	document.getElementById("listaTareas").innerHTML = lista;
+}
+mostrarLista10()
