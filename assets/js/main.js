@@ -1,3 +1,32 @@
+var tareasJSON =[];
+var tareaCreada = document.getElementById("newTarea");
+
+function Tarea (userId,id,title,completed){
+	this.userId = userId;
+	this.id = id;
+	this.title = title;
+	this.completed = completed;
+}
+
+function Lista(){	
+	this.tareasPendientes = tareasJSON;
+	this.id = 0
+	this.tarea = document.getElementById("newTarea");
+	this.agregar = function(){
+
+		this.tareaNueva = new Tarea (2017, this.id+=1, this.tarea.value, false);
+		this.tareasPendientes.push(this.tareaNueva);
+	}
+}
+
+var listaDeTareas = new Lista();
+
+var agregarTarea = document.getElementById("agregarTarea");
+agregarTarea.onclick = function(){
+	listaDeTareas.agregar();
+}
+
+
 var muchasTareas = [
   {
     "userId": 1,
@@ -1200,7 +1229,8 @@ var muchasTareas = [
     "completed": false
   }
 ]
-var diezTareas =[];
 for (var i = 0; i < 10; i++){
-	diezTareas.push( muchasTareas[i] );
+	var diezTareas = new Tarea(muchasTareas[i].userId,muchasTareas[i].id,muchasTareas[i].title,muchasTareas[i].completed)
+	tareasJSON.push( diezTareas );
 }
+
