@@ -8,16 +8,15 @@ function Tarea (userId,id,title,completed){
 }
 
 function Lista(){	
-	this.tareasPendientes = tareasJSON;
+	//this.tareasPendientes = tareasJSON;
 	this.id = 0;
 	this.tarea = document.getElementById("newTarea");
 	this.agregar = function(){
 		this.tareaNueva = new Tarea (2017, this.id+=1, this.tarea.value, false);
 		this.tareasPendientes.push(this.tareaNueva);
 		document.getElementById("newTarea").value = "";	
-		document.getElementById("listaTareas").innerHTML += "<li><input type='checkbox'>"+this.tareaNueva.title+"</li>";
-	};
-	
+		document.getElementById("listaTareas").innerHTML += "<li><input type='checkbox' >"+this.tareaNueva.title+"</li>";
+	 }
 		
 }
 
@@ -1241,5 +1240,13 @@ function mostrarLista10(){
 			lista += "<li><input type='checkbox'>"+tareasJSON[i].title+"</li>"
 	}
 	document.getElementById("listaTareas").innerHTML = lista;
+	return false;
 }
-mostrarLista10()
+mostrarLista10();
+function checkTask(){
+	var checkBox = taskListItem.querySelector("input[type=checkbox]");
+	if (){
+
+	} 
+}
+
