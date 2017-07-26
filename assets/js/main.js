@@ -24,9 +24,9 @@ function Lista(){
 		for (var i = 0; i < this.tareasPendientes.length; i++) {
         var tareaPendiente = this.tareasPendientes[i]
         if (tareaPendiente.completed)
-				lista += "<li id="+"tarea"+i+"><input type='checkbox' class='toDo' " + "value='"  + i + "' checked><del>"+tareaPendiente.title+"</del></li>"
+				lista += "<li style='background-color:#0fc3c6'><input type='checkbox' class='toDo' " + "value='"  + i + "' checked><del>"+tareaPendiente.title+"</del></li>"
         else
-        lista += "<li id="+"tarea"+i+"><input type='checkbox' class='toDo' " + "value='"  + i + "''>"+tareaPendiente.title+"</li>"
+        lista += "<li><input type='checkbox' class='toDo' " + "value='"  + i + "''>"+tareaPendiente.title+"</li>"
         		
     }   
 		document.getElementById("listaTareas").innerHTML = lista;
