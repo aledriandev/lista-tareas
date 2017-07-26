@@ -4,6 +4,13 @@ body {
   	background-color: #eee;
 }
 
-li{
+ul li{
 	background: #c0e8ea;
+	  height: 20px;
+  width: 450px;
+
+}
+
+ul {
+	list-style-type: none;
 }

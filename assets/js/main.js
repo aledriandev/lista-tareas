@@ -27,7 +27,6 @@ function Lista(){
 				lista += "<li style='background-color:#0fc3c6'><input type='checkbox' class='toDo' " + "value='"  + i + "' checked><del>"+tareaPendiente.title+"</del></li>"
         else
         lista += "<li><input type='checkbox' class='toDo' " + "value='"  + i + "''>"+tareaPendiente.title+"</li>"
-        		
     }   
 		document.getElementById("listaTareas").innerHTML = lista;
     checkear();
