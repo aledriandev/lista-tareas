@@ -14,3 +14,21 @@ ul li{
 ul {
 	list-style-type: none;
 }
+
+button.edit {
+	height: 20px;
+  	width: 20px;
+}
+
+button.elimin {
+	height: 20px;
+  	width: 20px;
+}
+
+input {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	color: #707070;
+	background-color: transparent;
+	border-width:0;
+}
