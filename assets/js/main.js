@@ -24,11 +24,10 @@ function Lista(){
 		for (var i = 0; i < this.tareasPendientes.length; i++) {
         var tareaPendiente = this.tareasPendientes[i]
         if (tareaPendiente.completed)
-				lista += "<li style='background-color:#0fc3c6'><input type='checkbox' class='toDo' " +
-                 "value='"  + i + "' checked><del><input type='text' value ='"+tareaPendiente.title+ "'/>"+
-                 "</del><button url='edit.png' class='edit' align='right'></button></li>"
+				lista += "<li contenteditable='true' style='background-color:#0fc3c6'><input type='checkbox' class='toDo' " + "value='"  + i + "' checked><del>"+tareaPendiente.title+"</del></li>"
         else
-        lista += "<li><input type='checkbox' class='toDo' " + "value='"  + i + "''>"+tareaPendiente.title+"</li>"
+        lista += "<li contenteditable='true'><input type='checkbox' class='toDo' " + "value='"  + i + "''>"+tareaPendiente.title+"</li>"
+        		
     }   
 		document.getElementById("listaTareas").innerHTML = lista;
     checkear();

@@ -7,7 +7,7 @@ body {
 ul li{
 	background: #c0e8ea;
 	  height: 20px;
-  width: 450px;
+  width: 550px;
 
 }
 
@@ -25,10 +25,9 @@ button.elimin {
   	width: 20px;
 }
 
-input {
-	font-family: Tahoma, Verdana, Arial;
-	font-size: 11px;
-	color: #707070;
+input.tareaP {
+	font-size: 16px;
 	background-color: transparent;
 	border-width:0;
+	width: 450px;
 }
