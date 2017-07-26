@@ -32,6 +32,16 @@ function Lista(){
 		document.getElementById("listaTareas").innerHTML = lista;
     checkear();
 	};
+
+  this.redirect = function(e){
+    var posLista = this.tareasPendientes[e.target.value];
+    if (posLista.completed)
+      posLista.completed = false;
+    else
+      posLista.completed = true;
+
+    this.mostrarLista();
+  };
 }
 
 var tareasJSON =[];
@@ -113,22 +123,10 @@ function checkear(){ //solo funcionaba una vez, no se actualizaba, se tiene q ll
   var checkTareas = document.getElementsByClassName("toDo");
   for (var i = 0; i< checkTareas.length; i++){
      checkTareas[i].onclick = function (event) {
-        redirect (event);
+        listaDeTareas.redirect (event);
      };
   }  
 }
-
-
-function redirect (e) {
-  var posLista = listaDeTareas.tareasPendientes[e.target.value];
-  if (posLista.completed)
-    posLista.completed = false;
-  else
-    posLista.completed = true;
-
-  listaDeTareas.mostrarLista();
-}
-
 
 
 
