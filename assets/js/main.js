@@ -11,10 +11,13 @@ function Lista(){
 	this.id = 0;
 	this.tarea = document.getElementById("newTarea");
 	this.agregar = function(){
-		this.tareaNueva = new Tarea (2017, this.id+=1, this.tarea.value, false);
-		this.tareasPendientes.push(this.tareaNueva);
-		document.getElementById("newTarea").value = "";	
-    //this.mostrarLista();
+    if(this.tarea.value != ""){
+      this.tareaNueva = new Tarea (2017, this.id+=1, this.tarea.value, false);
+      this.tareasPendientes.push(this.tareaNueva);
+      document.getElementById("newTarea").value = ""; 
+      this.mostrarLista();
+      checkear();
+    }
 	};
 	this.mostrarLista = function(){
 		var lista = ""
@@ -27,11 +30,8 @@ function Lista(){
         		
     }   
 		document.getElementById("listaTareas").innerHTML = lista;
+    checkear();
 	};
-//  this.redirect= function(e){
-//    console.log (e.target.value);
-//  }	
-		
 }
 
 var tareasJSON =[];
@@ -107,31 +107,26 @@ listaDeTareas.mostrarLista();
 var agregarTarea = document.getElementById("agregarTarea");
 agregarTarea.onclick = function(){
 	listaDeTareas.agregar();
-  listaDeTareas.mostrarLista();
 }
 
-
-var checkTareas = document.getElementsByClassName("toDo");
-for (var i = 0; i< checkTareas.length; i++){
-   checkTareas[i].onclick = function (event) {
-      redirect (event);
-   };
+function checkear(){ //solo funcionaba una vez, no se actualizaba, se tiene q llamar cada vez que se cambie checkee o se agregue una nueva tarea
+  var checkTareas = document.getElementsByClassName("toDo");
+  for (var i = 0; i< checkTareas.length; i++){
+     checkTareas[i].onclick = function (event) {
+        redirect (event);
+     };
+  }  
 }
+
 
 function redirect (e) {
-
-
   var posLista = listaDeTareas.tareasPendientes[e.target.value];
-  
   if (posLista.completed)
     posLista.completed = false;
   else
     posLista.completed = true;
 
   listaDeTareas.mostrarLista();
-
-  //console.log (e.target.value);
- 
 }
 
 
